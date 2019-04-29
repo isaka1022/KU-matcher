@@ -5,9 +5,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <meta viewport content='width="devise-width, initial-scale=1.0'>
     <title>Profy</title>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'=> true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body>
@@ -26,7 +26,7 @@
       </div>
       <footer class='row text-center'>
         <p>(C) Profy 2015</p>
-      </foooter>
+      </footer>
     </div>
   </body>
 </html>
