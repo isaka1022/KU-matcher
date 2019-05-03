@@ -1,9 +1,7 @@
-<% unless current_user.full_profile? %>
-  <header class="header_top panel panel-default col-lg-12 no-profile">
+ <header class="header_top panel panel-default col-lg-12 no-profile">
     <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
     <p>Profyは友達の質問に答えながらプロフィールを作るサービスです！</p>
-    <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
-  </header>
-<% else %>
-
-<% end %>
+    <%= link_to "ログイン", new_student_session_path, { class: "btn btn-lg btn-primary withripple" } %>
+    <%= link_to "新規登録", new_student_registration_path, { class: "btn btn-lg btn-primary withripple" } %>
+    <%# <%= link_to "社会人の方はこちら", (current_user), { class: "btn btn-lg btn-primary withripple" } %> 
+</header>
