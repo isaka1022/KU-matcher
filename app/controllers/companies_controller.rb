@@ -1,8 +1,21 @@
 class CompaniesController < ApplicationController
     def show
         @company = Company.find(params[:id])
-        @room_id = message_room_id(current_student,@company)
-        @messages = Message.recent_in_room(@room_id)
+        if student_signed_in?
+            @currentStudentScroom = Scroom.where(student_id: current_student.id)
+            #表示しているCompanyのidとと自分が持っているscroomのidが同じかどうか調べる
+            @currentStudentScroom.each do |cs|
+                if cs.company_id == @company.id
+                    @isRoom = true
+                    @scroomId = cs.id
+                end
+            end
+            #共通のRoomがなければ作る
+            if @isRoom
+            else
+                @scroom = Scroom.new
+            end
+        end
     end
 
     def edit

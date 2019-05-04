@@ -1,0 +1,2 @@
+class Scmessage < ApplicationRecord
+end

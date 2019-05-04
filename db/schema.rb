@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_022845) do
+ActiveRecord::Schema.define(version: 2019_05_04_055428) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -64,6 +64,35 @@ ActiveRecord::Schema.define(version: 2019_05_04_022845) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "scentries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "student_id"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_scentries_on_company_id"
+    t.index ["room_id"], name: "index_scentries_on_room_id"
+    t.index ["student_id"], name: "index_scentries_on_student_id"
+  end
+
+  create_table "scmessages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "scroom_id"
+    t.boolean "is_student"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scroom_id"], name: "index_scmessages_on_scroom_id"
+  end
+
+  create_table "scrooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "student_id"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_scrooms_on_company_id"
+    t.index ["student_id"], name: "index_scrooms_on_student_id"
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -125,4 +154,6 @@ ActiveRecord::Schema.define(version: 2019_05_04_022845) do
   end
 
   add_foreign_key "messages", "rooms"
+  add_foreign_key "scrooms", "companies"
+  add_foreign_key "scrooms", "students"
 end

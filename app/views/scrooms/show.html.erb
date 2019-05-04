@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2>チャットルーム</h2>
+        <a href="/company/<%= @scroom.company_id %>"><%= "#{@scroom.company.name}さん"%></a>
+        <% if @scmessages.present? %>
+            <% @scmessages.each do |scm| %>
+                <strong><%= scm.content %></strong>
+                <% if scm.is_student? %>
+                    <small>by <strong><a href="/students/<%= @scroom.student.id %>"><%= @scroom.student.name %>さん</a>
+                <% else%>
+                    <small>by <strong><a href="/company/<%= @scroom.company.id %>"><%= @scroom.company.name %>さん</a>
+                <% end %>
+            <% end %>
+            <hr>
+        <% else %>
+            <h3 class="text">メッセージはまだありません</h3>
+        <% end %>
+
+        <%= form_for @scmessage do |f|%>
+            <%= f.text_field :content, :placeholder => "メッセージを入力してください", :size => 70 %>
+            <%# room_idに@room表示しているroomのidを入れる %>
+            <%= f.hidden_field :scroom_id, :value => @scroom.id%> 
+            <br>
+            <%# form_forによって/esmessages/に飛ぶはず %>
+            <%= f.submit "投稿する" %>
+        <% end %>
+    </div>
+</div>
