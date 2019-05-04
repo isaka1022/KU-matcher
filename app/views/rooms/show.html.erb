@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2>チャットルーム</h2>
+        <% @entries.each do |e| %>
+          <a href="/students/<%= e.student.id %>"><%= "#{e.student.name}さん"%></a>
+        <% end %>
+        <% if @messages.present?%>
+            <% @messages.each do |m| %>
+                <strong><%= m.content %></strong>
+                <small>by <strong><a href="/students/<%= m.student_id %>"><%= m.student.name %>さん</a>
+                <hr>
+            <% end %>
+        <% else %>
+            <h3 class="text">メッセージはまだありません</h3>
+        <% end %>
+
+        <%= form_for @message do |f|%>
+            <%= f.text_field :content, :placeholder => "メッセージを入力してください", :size => 70 %>
+            <%# room_idに@room表示しているroomのidを入れる %>
+            <%= f.hidden_field :room_id, :value => @room.id%> 
+            <br>
+            <%# form_forによって/messages/に飛ぶはず %>
+            <%= f.submit "投稿する" %>
+        <% end %>
+    </div>
+  </div>

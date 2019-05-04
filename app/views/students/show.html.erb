@@ -6,7 +6,17 @@
             <div class="profile_edit">
                 <%= link_to 'プロフィール編集', edit_student_path(current_student), {:class => 'btn btn-primary withripple'} %>
             </div>
+        <% else %>
+            <% if @isRoom == true %>
+                <div class="btn btn-primary withripple"><a href="/rooms/<%= @roomId %>">チャットへ</a>
+            <% else %>
+                <%= form_for @room do |f| %>
+                    <%= fields_for @entry do |e|%>
+                        <%= e.hidden_field :student_id, :value=> @student.id%>
+                    <% end %>
+                <%= f.submit "チャットを始める" %>
+            <% end %>
         <% end %>
-
+    <% end %>
     </div>
   </div>
