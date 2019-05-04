@@ -12,9 +12,6 @@ class Student < ApplicationRecord
   has_many :sent_messages, class_name: "Message", through: "from_messages", source: :from
   has_many :received_messages, class_name: "Message", through: "to_messages", source: :to
 
-  def send_message(company, room_id, content)
-    from_messages.create!(to_id: company.id, room_id: room_id, content: content)
-  end
 
   def name
     "#{family_name} #{first_name}"

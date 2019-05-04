@@ -1,8 +1,7 @@
 class StudentsController < ApplicationController
     def show
         @student = Student.find(params[:id])
-        @room_id = message_room_id(current_student,@company)
-        @messages = Messages.recent_in_room(room_id)
+        
     end
 
     def edit
@@ -12,9 +11,6 @@ class StudentsController < ApplicationController
         current_student.update(update_params)
     end
 
-    def message_room_id(student, company)
-        "#{student.id}-#{company.id}"
-    end
 
     private
     def update_params
