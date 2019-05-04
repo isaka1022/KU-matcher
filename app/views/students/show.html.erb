@@ -1,0 +1,12 @@
+<div class="row form user_profile">
+    <div class="col-lg-12">
+    <div class="image" style="background-image: url(<%= @student.avatar.url(:medium) %>);"></div>
+        <h2><%= "#{@student.name}" %><span><%= "#{@student.name_kana}"%></span></h2>
+        <% if current_student.id == @student.id %>
+            <div class="profile_edit">
+                <%= link_to 'プロフィール編集', edit_student_path(current_student), {:class => 'btn btn-primary withripple'} %>
+            </div>
+        <% end %>
+
+    </div>
+  </div>

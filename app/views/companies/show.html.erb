@@ -1,0 +1,31 @@
+<div class="row form user_profile">
+    <div class="col-lg-12">
+    <div class="image" style="background-image: url(<%= @company.avatar.url(:medium) %>);"></div>
+        <h2><%= "#{@company.name}" %><span><%= "#{@company.name_kana}"%></span></h2>
+        <% if company_signed_in? && current_company.id == @company.id %>
+            <div class="profile_edit">
+                <%= link_to 'プロフィール編集', edit_company_path(current_company), {:class => 'btn btn-primary withripple'} %>
+            </div>
+        <% end %>
+
+    </div>
+  </div>
+
+<% if student_signed_in? %>
+    <div class="col-lg-12">
+        <div class="message_box">
+            <%= render @messages %>
+        </div>
+        <script type="text/javascript">
+        var height = 0;
+        $("div.message").each( function() {
+            height += ($(this).height();
+        });
+        $('div.message_box').scrollTop(height);
+        </script>
+        <div class="message_form">
+            <%= render 'messages/message_form',
+            {from_student: current_student, to_company: @company, room_id: @room_id} %>
+        </div>
+    </div>
+<% end %>
