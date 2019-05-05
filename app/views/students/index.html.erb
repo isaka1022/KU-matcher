@@ -1,6 +1,15 @@
+<% unless current_student.full_profile? %>
+  <header class="header_top panel panel-default col-lg-12 no-profile">
+    <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
+    <%= link_to 'プロフィールを登録する', edit_user_path(current_user), {class: 'btn btn-lg btn-primary withripple' } %>
+  </header>
+<% else %>
 <%= render partial: "cards/card",:locals => {company: @company} %>
-    <%= link_to "○", company_path(@company), {class: "btn btn-primary withripple" } %>
-<%= form_tag(root_path, :method => :get)do %>
-    <%= hidden_field :id, "#{@company.id}+1" %>
-    <%= submit_tag "×", :class => "btn btn-primary withripple" %>
+    <div class="btn-wrapper">
+        <%= link_to "○", company_path(@company), {class: "btn btn-primary withripple btn-design-a" } %>
+        <%= form_tag(root_path, :method => :get)do %>
+            <%= hidden_field :id, "#{@company.id}+1" %>
+            <%= submit_tag "×", :class => "btn btn-primary withripple btn-design-b " %>
+        <% end %>
+    </div>
 <% end %>

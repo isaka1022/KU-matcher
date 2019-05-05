@@ -21,7 +21,7 @@ html,body {
 }
 body {
   background-color: #fbf7f1 !important;
-  padding-top: 60px;
+  padding-top: 80px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -623,16 +623,17 @@ footer {
   background-color: rgba(#fff,0.93);
   box-shadow: 0 3px 5px rgba(#000,.1);
   header {
-    display: table;
   }
   .icon_image {
-    width: 40px;
-    height: 40px;
+    width: 300px;
+    height: 300px;
     background-size: cover;
-    display: table-cell;
+    display: block;
+    margin: auto;
   }
   .user_info {
-    display: inline-block;
+    text-align: center;
+    font-size: 5rem;
     margin-left: 10px;
     time {
       color: $gray;
@@ -748,3 +749,21 @@ footer {
   }
 }
 
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.btn-design-a {
+  height:120px;
+  width: 120px;
+  text-align: center;
+  font-size: 9rem;
+  justify-content: center;
+}
+.btn-design-b {
+  height:120px;
+  width: 120px;
+  text-align: center;
+  font-size: 9rem;
+  justify-content: center;
+}
