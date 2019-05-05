@@ -1,8 +1,17 @@
- <header class="header_top panel panel-default col-lg-12 no-profile">
-    <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
-    <p>Profyは友達の質問に答えながらプロフィールを作るサービスです！</p>
-    <%= link_to "ログイン", new_student_session_path, { class: "btn btn-lg btn-primary withripple" } %>
-    <%= link_to "新規登録", new_student_registration_path, { class: "btn btn-lg btn-primary withripple" } %><br>
-    <%= link_to "社会人：ログイン", new_company_registration_path, { class: "btn btn-lg btn-primary withripple" } %> 
-    <%= link_to "社会人：新規登録", new_company_session_path, { class: "btn btn-lg btn-primary withripple" } %> 
-</header>
+ <% unless student_signed_in? || company_signed_in?%>
+    <header class="header_top panel panel-default col-lg-12 no-profile">
+        <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
+        <p>Profyは友達の質問に答えながらプロフィールを作るサービスです！</p>
+        <%= link_to "ログイン", new_student_session_path, { class: "btn btn-lg btn-primary withripple" } %>
+        <%= link_to "新規登録", new_student_registration_path, { class: "btn btn-lg btn-primary withripple" } %><br>
+        <%= link_to "社会人：ログイン", new_company_registration_path, { class: "btn btn-lg btn-primary withripple" } %> 
+        <%= link_to "社会人：新規登録", new_company_session_path, { class: "btn btn-lg btn-primary withripple" } %> 
+    </header>
+<% end %>
+<%= render partial: "cards/card",:locals => {company: @company} %>
+    <%= link_to "○", company_path(@company), {class: "btn btn-primary withripple" } %>
+<%= form_tag(root_path, :method => :get)do %>
+    <%= hidden_field :id, "#{@company.id}+1" %>
+    <%= submit_tag "×", :class => "btn btn-primary withripple" %>
+<% end %>
+
