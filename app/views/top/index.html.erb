@@ -1,17 +1,39 @@
- <% unless student_signed_in? || company_signed_in?%>
-    <header class="header_top panel panel-default col-lg-12 no-profile">
-        <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
-        <p>Profyは友達の質問に答えながらプロフィールを作るサービスです！</p>
-        <%= link_to "ログイン", new_student_session_path, { class: "btn btn-lg btn-primary withripple" } %>
-        <%= link_to "新規登録", new_student_registration_path, { class: "btn btn-lg btn-primary withripple" } %><br>
-        <%= link_to "社会人：ログイン", new_company_registration_path, { class: "btn btn-lg btn-primary withripple" } %> 
-        <%= link_to "社会人：新規登録", new_company_session_path, { class: "btn btn-lg btn-primary withripple" } %> 
-    </header>
-<% end %>
-<%= render partial: "cards/card",:locals => {company: @company} %>
-    <%= link_to "○", company_path(@company), {class: "btn btn-primary withripple" } %>
-<%= form_tag(root_path, :method => :get)do %>
-    <%= hidden_field :id, "#{@company.id}+1" %>
-    <%= submit_tag "×", :class => "btn btn-primary withripple" %>
-<% end %>
+<header class="topPage">
+    <div class="bg-mask">
+        <h1>empower
+            <p>地方学生に、縁という力を。</p>
+        </h1>
+        <nav>
+            <ul>
+                <li><%= link_to "企業の皆様へ", new_company_session_path %></a></li>
+                <li><%= link_to "ログイン", new_student_session_path %></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
+<aside class="note">
+    <ul>
+        <li><span class="date">2019.05.07</span><a href="#">サイトをプレオープンしました</a></li>
+    </ul>
+</aside>
+
+<section class="info">
+    <ul>
+        <li><%= link_to "学生会員登録", new_student_registration_path %></li>
+    </ul>
+    <p class="annotation">empowerをご利用いただくには、会員登録が必要です。</p>
+</section>
+
+<section class="main">
+    <section class="aboutTop">
+        <div>
+            <h2>empowerとは</h2>
+            <p>empowerは地方の学生に出会いを提供するサービスです。「出会いは、人生を変える。」新しい視点をくれる出会いを通じてこれまでにないワクワク、そして力を手に入れよう。</p>
+        </div>
+    </section>
+</section>
+
+<footer class='row text-center'>
+    <p>(C) empower 2019</p>
+</footer>

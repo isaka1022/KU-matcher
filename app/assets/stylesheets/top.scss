@@ -1,3 +1,181 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    width: 100%;
+    font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",HelveticaNeue,"Hiragino Kaku Gothic ProN","游ゴシック Medium",YuGothic,YuGothicM,メイリオ,Meiryo,sans-serif;
+    font-weight: 300;
+    background-color :#fff !important
+}
+body, ul, li, figure {
+    margin: 0px;
+    padding: 0px;
+}
+
+section, footer {
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+section p {
+    font-size: 1rem;
+    color: #333;
+}
+section h1, section h2 {
+    margin-top: 0;
+}
+ul {
+    list-style: none;
+}
+h1 {
+    font-size :1.5rem;
+}
+h2 {
+    font-size:1.35em;
+    color: #333;
+    line-height: 1.5;
+}
+a {
+    text-decoration: none;
+    color: #1169d6
+}
+p{
+    line-height: 1.7;
+}
+header.topPage {
+    position: relative;
+    height: 500px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    background: url(header_bg.jpg) no-repeat center center;
+    background-size: cover;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+header.topPage nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px 0;
+    width: 100%;
+    color: #fff;
+}
+header.topPage nav ul {
+    list-style :none;
+    display: flex;
+    justify-content: flex-end;
+}
+header.topPage nav li a {
+    padding: 5px 0 0;
+    margin-right: 20px;
+    display: block;
+    color: rgba(255,255,255,.8);
+    font-size: .85rem;
+}
+header.topPage h1{
+    width: 70%;
+    max-width: 400px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 5rem;
+}
+header.topPage h1 p {
+    font-size: .3em;
+    line-height: 1.6;
+    margin: 2em 0 0;
+}
+.bg-mask {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bg-mask h1 {
+    font-size:1.6rem;
+}
+
+aside ul {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: .85em;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+aside a {
+    color: #333;
+    text-decoration: underline;
+}
+aside .date {
+    color : #666;
+    padding-right: 20px;
+}
+.info {
+    text-align: center;
+}
+.info ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info li {
+    width: 160px;
+    padding: 20px;
+}
+.info li a{
+    background: rgba(0, 167, 225, 1);
+    color: #fff;
+    border-radius: 7px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9em;
+}
+
+.annotation {
+    font-size: .85em;
+    color: #666;
+}
+section.main, section.main section {
+    padding: 0;
+}
+section.main .aboutTop {
+    padding: 20px;
+    background: #f7f7f7;
+    margin-bottom: 40px;
+}
+section.main .aboutTop div {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+section.main h2 {
+    color: #333;
+}
+
+
+@media screen and (max-width: 480px) {
+    header .topPage h1 p {
+        font-size: .6em;
+    }
+    aside{
+    width: 90%;
+    margin: 20px auto;
+    }
+    aside .date {
+        display: block;
+    }
+    .info {
+        padding: 40px 0;
+    }
+    .info .annotation {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

@@ -1,4 +1,8 @@
 class StudentsController < ApplicationController
+    def index
+        @company = Company.find(search_id)
+    end
+
     def show
         @student = Student.find(params[:id])
         @currentStudentEntry = Entry.where(student_id: current_student.id)
@@ -35,5 +39,14 @@ class StudentsController < ApplicationController
     private
     def update_params
         params.require(:student).permit(:family_name, :family_name_kana, :first_name, :first_name_kana, :avatar)
+    end
+
+    def search_id
+        if params.permitted?
+            params.require(:company).permit(:id)
+        
+        else
+            1
+        end
     end
 end

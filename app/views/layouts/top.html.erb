@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta cherset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name="viewport" content='width=devise-width, initial-scale=1.0, user-scalable=no'>
+    <title>empower</title>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'=> true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
