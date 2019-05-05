@@ -1,15 +1,24 @@
 class TopController < ApplicationController
     def index
-        @company = Company.find(search_id)
+        @company = Company.find(search_id+1)
+        if student_signed_in?
+            @student = Student.find(current_student.id)
+            @student.count = @student.count + 1
+        end
     end
 
-    private 
+    def update
+        
+    end
+
+
+    private
     def search_id
         if params.permitted?
-            params.require(:company).permit(:id)
-        
+            params.permit(:id)
         else
             1
         end
     end
 end
+

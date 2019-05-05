@@ -70,3 +70,4 @@ gem 'pry-rails'
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem 'jquery-turbolinks'
+  gem 'whenever', require: false
