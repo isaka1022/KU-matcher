@@ -4,7 +4,7 @@
     margin: $margin;
 }
 
-$base: #ec5e5f;
+$base: #00a7e1;
 $base_sub: #f09797;
 $accent: #5ec6ec;
 $text: #3b3730;
@@ -173,7 +173,7 @@ input[type=submit] {
   }
 }
 .login_back {
-    background: image-url("bg.jpg") no-repeat center center;
+    background: url("images/bg_1.jpg") no-repeat center center;
     background-size: cover;
     position: fixed;
     top: 0;

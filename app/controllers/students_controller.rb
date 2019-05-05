@@ -44,7 +44,6 @@ class StudentsController < ApplicationController
     def search_id
         if params.permitted?
             params.require(:company).permit(:id)
-        
         else
             1
         end
