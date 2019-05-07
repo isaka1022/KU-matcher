@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta cherset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta viewport content='width="devise-width, initial-scale=1.0'>
+    <title>empower</title>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'=> true %>
+    <%= stylesheet_link_tag    'top/top.css', media: 'all', 'data-turbolinks-track'=> true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+
+  <body id="top">
+<header class="topPage">
+    <div class="bg-mask">
+        <h1>empower
+            <p>地方学生に、「縁」という力を。</p>
+        </h1>
+        <nav>
+            <ul>
+                <li><%= link_to "企業の皆様へ", new_company_session_path %></a></li>
+                <li><%= link_to "ログイン", new_student_session_path %></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<aside class="note">
+    <ul>
+        <li><span class="date">2019.05.07</span><a href="#">サイトをプレオープンしました</a></li>
+    </ul>
+</aside>
+
+<section class="info">
+    <ul>
+        <li><%= link_to "学生会員登録", new_student_registration_path %></li>
+    </ul>
+    <p class="annotation">empowerをご利用いただくには、会員登録が必要です。</p>
+</section>
+
+<section class="main">
+    <section class="aboutTop">
+        <div>
+            <h2>empowerとは</h2>
+            <p>empowerは地方の学生に出会いを提供するサービスです。<br>「出会いは、人生を変える。」<br>新しい視点をくれる出会いを通じてこれまでにないワクワク、そして力を手に入れよう。</p>
+        </div>
+    </section>
+</section>
+
+<footer class='row text-center'>
+    <p>(C) empower 2019</p>
+</footer>
+        
+  </body>
+</html>
