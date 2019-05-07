@@ -1,7 +1,7 @@
 <% unless current_student.full_profile? %>
   <header class="header_top panel panel-default col-lg-12 no-profile">
     <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
-    <%= link_to 'プロフィールを登録する', edit_user_path(current_user), {class: 'btn btn-lg btn-primary withripple' } %>
+    <%= link_to 'プロフィールを登録する', edit_student_path(current_student), {class: 'btn btn-lg btn-primary withripple' } %>
   </header>
 <% else %>
 <%= render partial: "cards/card",:locals => {company: @company} %>
