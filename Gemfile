@@ -70,3 +70,8 @@ gem 'pry-rails'
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem 'jquery-turbolinks'
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg', '~> 0.18'
+end

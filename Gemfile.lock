@@ -47,7 +47,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.5.1)
+    autoprefixer-rails (9.5.1.1)
       execjs
     bcrypt (3.1.12)
     bindex (0.7.0)
@@ -162,6 +162,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    pg (0.21.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -190,6 +191,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.2.3)
       actionpack (= 5.2.3)
       activesupport (= 5.2.3)
@@ -288,9 +294,11 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mysql2 (~> 0.4.4)
   paperclip
+  pg (~> 0.18)
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.3)
+  rails_12factor
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
