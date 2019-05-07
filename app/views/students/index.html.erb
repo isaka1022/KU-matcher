@@ -7,7 +7,7 @@
 <%= render partial: "cards/card",:locals => {company: @company} %>
     <div class="btn-wrapper">
         <%= link_to "○", company_path(@company), {class: "btn btn-primary withripple btn-design-a" } %>
-        <%= form_tag(root_path, :method => :get)do %>
+        <%= form_tag(students_path, :method => :get)do %>
             <%= hidden_field :id, "#{@company.id}+1" %>
             <%= submit_tag "×", :class => "btn btn-primary withripple btn-design-b " %>
         <% end %>
