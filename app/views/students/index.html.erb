@@ -4,12 +4,15 @@
     <%= link_to 'プロフィールを登録する', edit_student_path(current_student), {class: 'btn btn-lg btn-primary withripple' } %>
   </header>
 <% else %>
-<%= render partial: "cards/card",:locals => {company: @company} %>
+  <div class="card_wrapper">
+    <%= render partial: "cards/card",:locals => {company: @company} %>
     <div class="btn-wrapper">
-        <%= link_to "○", company_path(@company), {class: "btn btn-primary withripple btn-design-a" } %>
-        <%= form_tag(students_path, :method => :get)do %>
-            <%= hidden_field :id, "#{@company.id}+1" %>
-            <%= submit_tag "×", :class => "btn btn-primary withripple btn-design-b " %>
-        <% end %>
+      <%= link_to "○", company_path(@company), {class: "btn btn-design-a" } %>
+      <%= button_to "x", {action: 'index', :id => @company.id+1}, :method => :get,  :class => "btn btn-design-b" %>
+      <%# <%= form_tag(students_path, :method => :get)do %>
+        <%# <%= hidden_field :id, "#{@company.id}+1" %> 
+        <%# <%= submit_tag "×", :class => "btn btn-primary withripple btn-design-b " %> 
+      <%# <% end %> 
     </div>
+  <div>
 <% end %>
