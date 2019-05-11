@@ -1,19 +1,19 @@
 class ScroomsController < ApplicationController
     def show
-        @scroom = Scroom.find_by(params[:scroom_id]) #ルーム情報取得
+        @scroom = Scroom.find(params[:id]) #ルーム情報取得
         @scmessage = Scmessage.new #新規メッセージ投稿
         @scmessages = @scroom.scmessages #このルームのメッセージをすべて取得
         if student_signed_in?
             if @scroom.student.id == current_student.id
                 @company = @scroom.company
             else
-                redirect_to "/"
+                redirect_to "students_path"
             end
         elsif company_signed_in?
             if @scroom.company.id == current_company.id
                 @student = @scroom.student
             else
-                redirect_to "/"
+                redirect_to "company_path(current_company.id)"
             end
         else
             redirect_to "/"

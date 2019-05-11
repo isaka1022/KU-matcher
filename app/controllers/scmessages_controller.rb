@@ -7,9 +7,9 @@ class ScmessagesController < ApplicationController
             @scmessage.is_student = false
         end
         if @scmessage.save
-            redirect_to "/scrooms/#{@scmessage.id}"
+            redirect_to scroom_url(@scmessage.scroom_id)
         else
-            redirect_to "/scrooms/#{@scmessage.id}"
+            redirect_to scroom_url(@scmessage.scroom_id)
         end
     end
     private

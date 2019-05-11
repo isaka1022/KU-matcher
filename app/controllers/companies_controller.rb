@@ -4,6 +4,7 @@ class CompaniesController < ApplicationController
         if student_signed_in?
             @currentStudentScroom = Scroom.where(student_id: current_student.id)
             #表示しているCompanyのidとと自分が持っているscroomのidが同じかどうか調べる
+            @isRoom = false
             @currentStudentScroom.each do |cs|
                 if cs.company_id == @company.id
                     @isRoom = true

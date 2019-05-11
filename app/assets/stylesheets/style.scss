@@ -185,6 +185,12 @@ input[type=submit] {
     .sign_up_logo {
       text-align: center;
       margin-bottom: 20px;
+      display: inline-block;
+      height: 125px;
+      background-size: contain;
+      background-position:center;
+      background-repeat: no-repeat;
+      margin-top: 70px;
       img {
         width: 300px;
       }
@@ -742,10 +748,15 @@ footer {
   .login_back, .regist_back {
     overflow: auto;
     padding: 50px 0;
+    height: 100%;
+    width :100%;
     .log-in {
       position: relative;
-      height: auto;
+      height: 1;
     }
+  }
+  .login_back .sign_up_logo {
+    width: 90%;
   }
 }
 

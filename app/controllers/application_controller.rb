@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
         if student_signed_in?
             students_path
         end
+        if company_signed_in?
+            company_path(current_company.id)
+        end
     end
     def after_sign_out_path_for(resource)
        root_path

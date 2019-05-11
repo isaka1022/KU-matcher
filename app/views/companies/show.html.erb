@@ -8,7 +8,9 @@
             </div>
         <% elsif student_signed_in? %>
             <% if @isRoom == true %>
-                <div class="btn btn-primary withripple"><a href="/scrooms/<%= @scroomId %>">チャットへ</a>
+                <div class="btn btn-primary withripple"><a href="/scrooms/<%= @scroomId %>">チャットへ</a><div>
+                <%= link_to "チャットへ", scroom_path(@scroomId), :class => "ui-button" %>
+                <%= button_to "チャットへ", {controller: 'scrooms', action:'show'},{:id => @scroomId, :student_id => @current_student.id, :company_id => @company.id, :scroom_id => @scroomId }  %>
             <% else %>
                 <%= form_for @scroom do |f| %>
                     <%= f.hidden_field :student_id, :value=> current_student.id%>
