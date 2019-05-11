@@ -4,7 +4,11 @@
         <% if @currentScrooms.present? %>
             <% @currentScrooms.each do |scr| %>
                <%= link_to scroom_path(scr.id) do %>
-                <%= scr.company.name %>とのチャットルーム<br>
+                <% if student_signed_in?%>
+                    <%= scr.company.name %>とのチャットルーム<br>
+                <% else %>
+                    <%= scr.student.name %>とのチャットルーム<br>
+                <% end %>
             <% end %>
         <% end %>
         <% else %>

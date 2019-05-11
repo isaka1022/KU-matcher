@@ -1,7 +1,10 @@
 class ScroomsController < ApplicationController
     def index
-        myRoomIds = []
-        @currentScrooms = Scroom.where("student_id = ?",current_student.id)
+        if student_signed_in?
+            @currentScrooms = Scroom.where("student_id = ?",current_student.id)
+        elsif company_signed_in?
+            @currentScrooms = Scroom.where("company_id = ?",current_company.id)
+        end
     end
 
     def show
@@ -24,8 +27,6 @@ class ScroomsController < ApplicationController
             redirect_to "/"
         end
     end
-
-    
 
     def create
         if student_signed_in?
