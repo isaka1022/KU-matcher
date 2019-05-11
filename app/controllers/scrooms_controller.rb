@@ -1,4 +1,9 @@
 class ScroomsController < ApplicationController
+    def index
+        myRoomIds = []
+        @currentScrooms = Scroom.where("student_id = ?",current_student.id)
+    end
+
     def show
         @scroom = Scroom.find(params[:id]) #ルーム情報取得
         @scmessage = Scmessage.new #新規メッセージ投稿
@@ -19,6 +24,8 @@ class ScroomsController < ApplicationController
             redirect_to "/"
         end
     end
+
+    
 
     def create
         if student_signed_in?

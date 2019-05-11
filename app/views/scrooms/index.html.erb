@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2>チャットルーム一覧</h2>
+        <% if @currentScrooms.present? %>
+            <% @currentScrooms.each do |scr| %>
+               <%= link_to scroom_path(scr.id) do %>
+                <%= scr.company.name %>とのチャットルーム<br>
+            <% end %>
+        <% end %>
+        <% else %>
+            <h3 class="text">チャットルームはまだありません</h3>
+        <% end %>
+    </div>
+</div>
